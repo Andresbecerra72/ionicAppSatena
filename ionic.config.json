@@ -1,5 +1,7 @@
 {
   "name": "AppSatena",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -8,45 +8,65 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'tiquetes',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../tiquetes/tiquetes.module').then(m => m.TiquetesPageModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'ofertas',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../ofertas/ofertas.module').then(m => m.OfertasPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'checkin',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../checkin/checkin.module').then(m => m.CheckinPageModule)
+          }
+        ]
+      },
+      {
+        path: 'home',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../home/home.module').then(m => m.HomePageModule)
+          }
+        ]
+      },
+      {
+        path: 'oficinas',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../oficinas/oficinas.module').then(m => m.OficinasPageModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/home',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/home',
     pathMatch: 'full'
   }
 ];

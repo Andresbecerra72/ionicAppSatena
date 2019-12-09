@@ -1,0 +1,75 @@
+<ion-header>
+  
+    <ion-toolbar>
+      <ion-title>
+      <h2>Nuestras Oficinas</h2> 
+      </ion-title>
+    </ion-toolbar>
+
+    <ion-fab horizontal="end" vertical="top" slot="fixed">
+        <ion-fab-button color="secondary">
+          <ion-icon name="share"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="start">
+          <ion-fab-button href="https://www.facebook.com/aerolineasatena" color="light">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button href="https://twitter.com/AerolineaSatena" color="light">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button color="light">
+            <ion-icon href="https://www.instagram.com/aerolineasatena/" name="logo-instagram"></ion-icon>
+          </ion-fab-button>      
+        </ion-fab-list>
+      </ion-fab>
+
+
+  </ion-header>
+  
+  
+  
+<ion-content class="scroller ion-padding" no-bounce>
+
+
+<ion-list >
+    <ion-item-sliding (click)="expandedItem(item)" *ngFor="let item of items">
+      <ion-item>
+
+        <ion-label>
+          <strong class="strongTitle">{{item.name}}</strong> {{item.iata}}
+          <fa-icon class="icono derecha" [icon]="['fas', 'map-pin']"></fa-icon>
+        </ion-label>
+
+      </ion-item>
+      
+<!-- EXPANDABLE-->
+        <app-expandable [expandHeight]="itemExpandedHeight" [expanded]="item.expanded">
+            <p class="paragraf">
+                <strong>Oficina Principal:</strong> {{item.direccion}}&nbsp;{{item.lugar}}<br>
+                Teléfono: {{item.telefono}}<br>
+                Celular Oficina: {{item.celular}}<br>
+                Celular Aeropuerto: {{item.cellAeropuerto}}<br>
+                {{item.info}}<br>
+                <span>E-mail:&nbsp; </span><a href={{item.refmail}}>{{item.email}}</a>
+            </p>
+        </app-expandable>
+      
+     
+    </ion-item-sliding>
+  
+    
+  </ion-list>
+
+
+  
+
+
+
+<!--*****************-->
+    
+
+
+  </ion-content>
+
+  
+  

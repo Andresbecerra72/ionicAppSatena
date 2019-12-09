@@ -1,0 +1,59 @@
+ion-title {
+	color:  #003883;
+}
+
+ion-header {
+	background-color: #fff;
+	border-bottom: 2px solid #022471; 
+	text-align: left; 
+	top: 0;
+	width: 100%;
+	}
+
+ion-label {
+	background-color: rgba(0, 0, 0, 0.04);
+	color: gray;
+}
+
+.scroller {
+	
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;  // IE 10+
+    scrollbar-width: none;  // Firefox
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      display: none; // Safari and Chrome
+    }
+}
+
+
+.strongTitle {
+	color:  #003883;
+}
+
+.paragraf {
+	padding: 20px;
+	background-color: rgba(0, 0, 0, 0.04);
+	font-style: italic;
+	color: gray;
+	font-size: small;
+}
+
+.icono.derecha {
+	float: right;
+	margin-left: 10px; 
+	
+}
+
+.toggle-down {
+	transform: rotate(0deg);
+  }
+  
+  
+.toggle-up {
+	color:  #003883;
+	transform: rotate(90deg);
+  }
+  
