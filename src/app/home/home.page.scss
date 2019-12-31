@@ -44,8 +44,8 @@ ion-slides {
 }
 
 .image1 {
-  --background: url('/assets/img1.png') no-repeat cover fixed center;
-  background: url('/assets/img1.png') no-repeat fixed center; 
+  --background: url('/assets/1.jpg') no-repeat cover fixed center;
+  background: url('/assets/1.jpg') no-repeat fixed center; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -54,7 +54,8 @@ ion-slides {
 .btns_home {
   bottom: 25px;
   position: absolute;
+  top: 470px; 
   width: 100%;
   z-index: 2;
- 
+   
 }
