@@ -6,6 +6,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ServiciosPage } from './servicios.page';
+//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+//se importa el expandable Component
+import { ExpandComponent } from "../components/expand/expand.component";
+import { fas, faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 const routes: Routes = [
   {
@@ -19,8 +24,16 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    FontAwesomeModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ServiciosPage]
+  declarations: [ServiciosPage, ExpandComponent]
 })
-export class ServiciosPageModule {}
+export class ServiciosPageModule {
+
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas);
+    library.addIcons(faCoffee);
+       }
+
+}

@@ -1,0 +1,47 @@
+<ion-split-pane>
+<ion-menu contentId="content">
+
+  <ion-header>
+    <ion-toolbar color="light" class="ion-padding">
+      <img src="/assets/logoblue.png" alt="Satena">
+   
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+    <ion-list color="light">
+
+      <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+
+        <ion-item color="light" lines="none" [routerLink]="p.url" routerDirection = "root" [class.active-item]="selectedPath.startsWith(p.url)">
+          <ion-label style="color: #003883; font-style: oblique;">
+            {{p.title}}
+          </ion-label>
+          <ion-icon name="{{p.icon}}" slot="end" style="color: #003883">
+           
+          </ion-icon>
+        </ion-item>
+
+      </ion-menu-toggle>
+<br>
+      <ion-item>
+        <img src="/assets/aviones/embraer_170.png" alt="#">
+      </ion-item>
+
+      <!--Usado para un acceso con login-->
+<!-- 
+      <ion-item tappable routerLink = "/home" routerDirection = "root">
+        <ion-icon name="log-out" slot="start"></ion-icon>
+        Logout
+      </ion-item>
+    -->
+    </ion-list>
+
+  </ion-content>
+
+</ion-menu>
+
+<ion-router-outlet id="content" main></ion-router-outlet>
+
+</ion-split-pane>

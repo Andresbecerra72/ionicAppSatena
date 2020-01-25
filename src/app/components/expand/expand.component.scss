@@ -1,0 +1,18 @@
+.expand-wrapper {
+    //transition: max-height 0.4s ease-in-out;
+    transition: 0.5s linear;
+    overflow: hidden;
+    height: 0px;
+  }
+
+  .expanded {
+    height: 480px !important;
+  }
+
+  .expander {
+    height: 680px !important;
+  }
+
+  .expandxs {
+    height: 200px !important;
+  }

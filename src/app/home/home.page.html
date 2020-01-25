@@ -1,31 +1,35 @@
-<ion-header>
-  <ion-toolbar class="header_home">   
-         
+<ion-header class="header_home">
+  <ion-toolbar >   
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
         <img src="/assets/logo.png" alt="Satena">
-    
+   
    </ion-toolbar>
   
-  <ion-fab horizontal="end" vertical="top" slot="fixed">
-      <ion-fab-button color="secondary">
-        <ion-icon name="share"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-list>
-        <ion-fab-button href="https://www.facebook.com/aerolineasatena" color="light">
-          <ion-icon name="logo-facebook"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-button href="https://twitter.com/AerolineaSatena" color="light">
-          <ion-icon name="logo-twitter"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-button color="light">
-          <ion-icon href="https://www.instagram.com/aerolineasatena/" name="logo-instagram"></ion-icon>
-        </ion-fab-button>      
-      </ion-fab-list>
-    </ion-fab>
+  
 </ion-header>
 
 <ion-content class="scroller" no-bounce>
 
-  <ion-slides [options]="slideOptsCube">
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="primary">
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button href="https://www.facebook.com/aerolineasatena" color="light">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button href="https://twitter.com/AerolineaSatena" color="light">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button href="https://www.instagram.com/aerolineasatena/" color="light">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-fab-button>      
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-slides [options]="slideOptsFade">
 
     
 
@@ -81,8 +85,6 @@
 -->
  
 </ion-content>
-
-
 
 
     

@@ -1,8 +1,11 @@
 <ion-header>
   
     <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
       <ion-title>
-      <h2>Nuestras Oficinas</h2> 
+      <h2 style="font-size: 1.2em;">Nuestras Oficinas</h2> 
       </ion-title>
     </ion-toolbar>
 
@@ -10,15 +13,15 @@
         <ion-fab-button color="secondary">
           <ion-icon name="share"></ion-icon>
         </ion-fab-button>
-        <ion-fab-list side="start">
+        <ion-fab-list>
           <ion-fab-button href="https://www.facebook.com/aerolineasatena" color="light">
             <ion-icon name="logo-facebook"></ion-icon>
           </ion-fab-button>
           <ion-fab-button href="https://twitter.com/AerolineaSatena" color="light">
             <ion-icon name="logo-twitter"></ion-icon>
           </ion-fab-button>
-          <ion-fab-button color="light">
-            <ion-icon href="https://www.instagram.com/aerolineasatena/" name="logo-instagram"></ion-icon>
+          <ion-fab-button href="https://www.instagram.com/aerolineasatena/" color="light">
+            <ion-icon name="logo-instagram"></ion-icon>
           </ion-fab-button>      
         </ion-fab-list>
       </ion-fab>
@@ -42,7 +45,7 @@
 
       </ion-item>
       
-<!-- EXPANDABLE-->
+<!-- EXPANDABLE ES EL COMPONENTE SELECCIONADO PARA LA PAGINA OFICINAS-->
         <app-expandable [expandHeight]="itemExpandedHeight" [expanded]="item.expanded">
             <p class="paragraf">
                 <strong>Oficina Principal:</strong> {{item.direccion}}&nbsp;{{item.lugar}}<br>

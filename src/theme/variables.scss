@@ -74,18 +74,15 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
-}
 
-/* CSS Document */
+
+ /* CSS Document */
 
 /*========== Reset CSS ==========*/
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, ion-header, ion-toolbar, hgroup, menu, nav, section, summary, time, mark, audio, video {--background:transparent; border:none; border-radius:0; font-size: 100%; margin:0; outline:0; padding:0; text-decoration:none; vertical-align: baseline;}
 article,aside,details,figcaption,figure, footer,ion-header,hgroup,menu,nav,section {display:block;}
-a{color: #2174BA; text-decoration: none;}
-h1 a {color:#26689c !important;}
 
 
- 
 
  
 /*TRANSITION*/
@@ -99,11 +96,19 @@ overflow: hidden;
 -webkit-overflow-scrolling: auto;}
 
 /*ESTILOS GENERALES*/ 
-h1, h2, h3, h4, h5, h6 {color: #003883; padding-bottom: 10px;}
-h2 {font-family:'Times New Roman', Times, serif; font-size: 1.5em; font-weight: lighter;padding-bottom: 15px;}
+h1, h2, h3, h4, h5, h6 {color: #003883;}
+h2 {font-family:'Times New Roman', Times, serif; font-size: 1.3em; font-weight: lighter;padding: 5px;}
 ul li {margin-left: 20px; text-align: justify;}
 
 /*HEADER*/
 ion-header a {position: relative; z-index: 15;}
 ion-header a img {max-height: 20px;}
+
+
+
+
+
+}
+
+
 

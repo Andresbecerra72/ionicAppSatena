@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'menu/first', pathMatch: 'full' },
   {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+     path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    },
+  {
+    path: 'menu', loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
-  { path: 'servicios', loadChildren: './servicios/servicios.module#ServiciosPageModule' }
+ 
 ];
 @NgModule({
   imports: [
