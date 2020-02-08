@@ -1,0 +1,47 @@
+
+<div class="form-group">
+  <ion-card class="ion-padding">
+    <div class="section-title">
+      <h1>
+       No te pierdas ninguna Promo           
+      </h1>
+  </div>
+    <ion-item>
+      <ion-label style="font-family: inherit;" color="medium" position="floating">Nombre</ion-label>
+      <ion-input type="text" class="form-control" [(ngModel)]="name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label style="font-family: inherit;" color="medium" position="floating">Apellido</ion-label>
+      <ion-input type="text" class="form-control" [(ngModel)]="lastname" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label style="font-family: inherit;" color="medium" position="floating">E-mail</ion-label>
+      <ion-input type="text" class="form-control" [(ngModel)]="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label style="font-family: inherit;" color="medium">Aeropuerto Más Cercano</ion-label>
+      <ion-select class="form-control" interface="popover" [(ngModel)]="airportCodeValue" multiple="false" placeholder="Select.." required > 
+          
+         <ion-select-option *ngFor="let a of airportsList.airports" value="{{a.id}}">{{a.id}} - {{a.ciudad}}</ion-select-option>
+                
+      </ion-select>
+    </ion-item>
+  
+    <ion-item lines="none">
+      <ion-label  style="font-family: inherit;" color="medium" >Acepto
+        <a style="font-size: 14px;" href="https://www.satena.com/viewer.php?id=408&&rlsk='YUhSMGNITTZMeTkzZDNjdWMyRjBaVzVoTG1OdmJTOWtiMk4xYldWdWRHOXpMMk52Y25CdmNtRjBhWFp2TDNCdmJHbDBhV05oYzE5amIyNWthV05wYjI1bGMxOTBaWEp0YVc1dmMxOTFjMjh1Y0dSbQ=='" target="_blank" title="Ver términos y condiciones"> 
+          Términos y condiciones                                   
+        </a>
+      </ion-label>
+      <ion-checkbox color="primary"  slot="start"></ion-checkbox>
+    </ion-item>
+    <div>
+    <ion-button shape="round" color="primary" (click)="post()">¡Inscribirme!</ion-button>
+  </div>
+  </ion-card>
+
+
+</div>
+
+
+

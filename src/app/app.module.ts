@@ -9,6 +9,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+//se improta el modulo http
+import {HttpClientModule} from '@angular/common/http';
+
 //se importa el modulo para el carrusel
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -27,7 +30,7 @@ library.add(fas, far, fab)
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FontAwesomeModule],
+  imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule,FontAwesomeModule],
   providers: [
     StatusBar,
     SplashScreen,
