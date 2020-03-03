@@ -40,7 +40,7 @@
                         <ion-label style="font-family: inherit;" color="medium">Aeropuerto Más Cercano</ion-label>
                         <ion-select class="form-control" interface="popover" name="airportCodeValue" [(ngModel)]="airportCodeValue" multiple="false" placeholder="Select.." required > 
                             
-                          <ion-select-option *ngFor="let a of airportsList.airports" value="{{a.id}}">{{a.id}} - {{a.ciudad}}</ion-select-option>
+                          <ion-select-option *ngFor="let a of airportsList.airports" value="{{a.id}}">{{a.ciudad}} - {{a.nombre}}</ion-select-option>
                                   
                         </ion-select>
                       </ion-item>

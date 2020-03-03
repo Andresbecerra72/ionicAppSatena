@@ -15,7 +15,6 @@ import {HttpClientModule} from '@angular/common/http';
 //se improta el modulo networkinterface para capturar la IP
 import { NetworkInterface } from '@ionic-native/network-interface/ngx';
 
-
 //se importa el modulo Forms
 import {FormsModule} from '@angular/forms';
 

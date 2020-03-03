@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { NetworkInterface } from '@ionic-native/network-interface/ngx';
+
+
 
 @Component({
   selector: 'app-http-client',
@@ -22,16 +24,22 @@ export class HttpClientComponent implements OnInit {
   isAccepted: boolean;
   isValidFormSubmitted: boolean;
   ipAddress: any;
+ 
+ 
   
   
-  constructor(private http: HttpClient, public networkInterface: NetworkInterface) {     
-
+  
+  
+  constructor(private http: HttpClient, public networkInterface: NetworkInterface) {   
+    
+       
+    
         this.isValidFormSubmitted = false;
         this.isAccepted = true;   
 
         //codigo para consultar listado de aeropuertos
         this.airportsList = [
-          this.http.get<any[]>('http://apps.satena.com.co/ControlPlaneacion/suscripcion/airports.php').subscribe(result => { this.airportsList = result; })
+          this.http.get<any[]>('https://www.satena.com/include/movil/airports.php').subscribe(result => { this.airportsList = result; })
           ];
 
         //codigo para capturar la direccion ip
@@ -42,28 +50,26 @@ export class HttpClientComponent implements OnInit {
 
   ngOnInit() {}
 
-  
-  
-  getAirtports(){
-  return this.http.get('http://apps.satena.com.co/ControlPlaneacion/suscripcion/airports.php').subscribe( data => {this.resultadoPeticion = data;});
- 
-  }
 
-  get(){
-    this.http.get('http://apps.satena.com.co/ControlPlaneacion/suscripcion/read.php').subscribe( data => {this.resultadoPeticion = data;});
-  
-  }
 
-  post(){    
-    
-          this.http.post('http://apps.satena.com.co/ControlPlaneacion/suscripcion/add.php',
+
+
+  //codigo para registro del usuario
+  post(){ 
+
+          let key = btoa(btoa("movil"));//llave movil
+
+       
+         this.http.post('https://www.satena.com/action/suscribirseSatenaAction.php',      
           {
+            key : key,
             name : this.name,
             lastname : this.lastname,
             correo : this.email,
+            creadoPor: 'Usuario Android',
             airport : this.airportCodeValue,
             ip: this.ipAddress
-          }    
+          }
           ).subscribe( data => {this.resultadoPeticion = data;});
 
   }
