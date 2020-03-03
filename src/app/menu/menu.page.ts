@@ -16,12 +16,12 @@ export class MenuPage implements OnInit {
   icon: 'home'
 },
 {
-  title:'Servicios',
+  title:'Nuestros Servicios',
   url: '/menu/second',
   icon: 'information-circle-outline'
 },
 {
-  title:'Registrate',
+  title:'!Entérate de las Promos¡',
   url: '/menu/third',
   icon: 'contact'
 },

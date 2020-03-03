@@ -64,13 +64,13 @@ downClass:string = 'toggle-down';
     name:'Arauca',
     iata: '- AUC',
     direccion: 'Aeropuerto Santiago Pérez',
-    lugar: '',
-    telefono:'(7) 8853407 ext 103',
-    celular: '(310) 209 73 20, (320) 726 45 05, (310) 778 59 19',
-    cellAeropuerto: '(310) 209 72 79',
+    lugar: ' arauca@satena.com',
+    telefono:'(310) 209 73 20',
+    celular: ' (310) 209 72 79',
+    cellAeropuerto: '(323) 232 68 47',
     email: 'araucacentro@satena.com',
     refmail: 'mailto:araucacentro@satena.com',
-    info:'Ventas: Carrera 19 No 22 - 04',
+    info:'Ventas: Calle 17 No. 19-66',
    expanded: false
  },
  {
@@ -131,10 +131,10 @@ downClass:string = 'toggle-down';
   lugar: '',
   telefono:' (57+2) 8857709',
   celular: ' (311) 254 68 22, Carga:(315) 897 02 39',
-  cellAeropuerto: '(57+2) 666 33 70 - (57+2) 666 32 95',
+  cellAeropuerto: '(57+2)666 33 70 - (57+2)666 32 95',
   email: 'cali@satena.com',
   refmail: 'mailto:cali@satena.com',
-  info:'Bodega de Carga: Aeropuerto Alfonso Bonilla Aragon, Terminal de carga, bodega No.5 TAESCOL.',
+  info:'Bodega de Carga: Alfonso Bonilla Aragon, Terminal de carga, bodega No.5 TAESCOL.',
  expanded: false
 },
 {
@@ -376,12 +376,178 @@ downClass:string = 'toggle-down';
   refmail: 'mailto:puertoasis@satena.com',
   info:'',
  expanded: false
+},
+{
+  name:'Puerto Carreño',
+  iata: '- PCR',
+  direccion: 'Av. Orinoco No. 2 - 19 ',
+  lugar: 'Barrio La Plazuela',
+  telefono:'(320) 938 07 54',
+  celular: '(310) 322 90 29 – (320) 938 07 54',
+  cellAeropuerto: '(320) 938 07 54',
+  email: 'puertocareno@satena.com',
+  refmail: 'mailto:puertocareno@satena.com',
+  info:'',
+ expanded: false
+},
+{
+  name:'Puerto Leguízamo',
+  iata: '- LQM',
+  direccion: 'Calle 2 No. 1-68 Centro',
+  lugar: 'Centro',
+  telefono:'(312) 541 70 79',
+  celular: '(312) 497 21 91 – (311) 561 06 28',
+  cellAeropuerto: '(312) 541 70 79',
+  email: 'leguizamo@satena.com',
+  refmail: 'mailto:leguizamo@satena.com',
+  info:'',
+ expanded: false
+},
+{
+  name:'Quibdó',
+  iata: '- UIB',
+  direccion: 'Calle 2 No 24A – 35',
+  lugar: 'Frente a la Alcaldía y Aeropuerto El Caraño Local 9',
+  telefono:'(57+4) 672 12 36',
+  celular: '(321) 458 35 04',
+  cellAeropuerto: '(313) 422 28 14',
+  email: 'quibdo@satena.com',
+  refmail: 'mailto:quibdo@satena.com',
+  info:'',
+ expanded: false
+},
+{
+  name:'San Andrés',
+  iata: '- ADZ',
+  direccion: 'Aeropuerto Gustavo Rojas Pinilla',
+  lugar: '',
+  telefono:'(313) 422 28 06',
+  celular: '(313) 422 28 05',
+  cellAeropuerto: '(313) 422 28 06',
+  email: 'sanandres@satena.com',
+  refmail: 'mailto:sanandres@satena.com',
+  info:'',
+ expanded: false
+},
+
+{
+  name:'San José del Guaviare',
+  iata: '- SJE',
+  direccion: 'Aeropuerto Jorge Enrique González',
+  lugar: '',
+  telefono:'(322) 402 18 92',
+  celular: '(322) 402 18 92',
+  cellAeropuerto: '(322) 402 18 92',
+  email: 'sanjose.ventas@satena.com',
+  refmail: 'mailto:sanjose.ventas@satena.com',
+  info:'',
+ expanded: false
+},
+{
+  name:'San Vicente del Caguán',
+  iata: '- SVI',
+  direccion: 'Calle 3 No. 5 - 30',
+  lugar: 'Barrio Hernandez',
+  telefono:'(57+8) 464 46 85',
+  celular: '(311) 236 29 92',
+  cellAeropuerto: '(314) 347 78 94',
+  email: 'sanvicente@satena.com',
+  refmail: 'mailto:sanvicente@satena.com',
+  info:'',
+ expanded: false
+},
+{
+  name:'Saravena',
+  iata: '- RVE',
+  direccion: 'Calle 25 No. 17 - 36 ',
+  lugar: 'Barrio Modelo',
+  telefono:'(57+7) 889 22 15',
+  celular: '(311) 254 68 95',
+  cellAeropuerto: '(311) 254 68 96',
+  email: 'saravena@satena.com',
+  refmail: 'mailto:saravena@satena.com',
+  info:'',
+ expanded: false
+},
+{
+  name:'Tame',
+  iata: '- TME',
+  direccion: 'Aeropuerto Tame ',
+  lugar: 'Barrio Modelo',
+  telefono:'(313) 647 40 18',
+  celular: '(311) 254 68 96',
+  cellAeropuerto: '(311) 254 68 97',
+  email: 'tame@satena.com',
+  refmail: 'mailto:tame@satena.com',
+  info:'',
+ expanded: false
+},
+{
+  name:'Tarapacá',
+  iata: '- TCP',
+  direccion: 'Aeropuerto Tarapacá ',
+  lugar: '',
+  telefono:'',
+  celular: '(313) 859 03 54',
+  cellAeropuerto: '(313) 859 03 54',
+  email: 'leticia@satena.com',
+  refmail: 'mailto:leticia@satena.com',
+  info:'',
+ expanded: false
+},
+{
+  name:'Tolú',
+  iata: '- TLU',
+  direccion: 'Aeropuerto Golfo de Morrosquillo ',
+  lugar: '',
+  telefono:'',
+  celular: '(320) 789 96 31',
+  cellAeropuerto: '(320) 789 96 31',
+  email: 'tolu@satena.com',
+  refmail: 'mailto:tolu@satena.com',
+  info:'',
+ expanded: false
+},
+{
+  name:'Tumaco',
+  iata: '- TCO',
+  direccion: 'Calle Sucre 6 - 57',
+  lugar: 'Frente a Merca Z',
+  telefono:'(57+2) 727 37 38 - (57+2) 727 28 72',
+  celular: '(317) 312 12 47 - (312) 877 50 13 - (317) 700 06 39',
+  cellAeropuerto: '(312) 876 87 06',
+  email: 'tumaco@satena.com',
+  refmail: 'mailto:tumaco@satena.com',
+  info:'',
+ expanded: false
+},
+{
+  name:'Villagarzón',
+  iata: '- VGZ',
+  direccion: 'Avenida principal frente al banco BBVA',
+  lugar: '',
+  telefono:'',
+  celular: '(310) 252 27 06',
+  cellAeropuerto: '(314) 451 47 38',
+  email: 'mocoa@satena.com',
+  refmail: 'mailto:mocoa@satena.com',
+  info:'',
+ expanded: false
+},
+{
+  name:'Villavicencio',
+  iata: '- VVC',
+  direccion: 'Carrera 31 # 40 - 12 oficina 6 piso 2',
+  lugar: ' Centro, Edificio Santa Catalina',
+  telefono:'',
+  celular: '(322) 402 27 39',
+  cellAeropuerto: '(321) 275 07 76',
+  email: 'villavicencio.ventas@satena.com',
+  refmail: 'mailto:villavicencio.ventas@satena.com',
+  info:'',
+ expanded: false
 }
-
-    ];
-
-   
-    
+    ];   
    
   }
 //codigo para expandir el elemento cuando se hace click 
