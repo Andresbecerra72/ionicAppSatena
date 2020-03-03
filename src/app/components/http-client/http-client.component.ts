@@ -25,15 +25,9 @@ export class HttpClientComponent implements OnInit {
   isValidFormSubmitted: boolean;
   ipAddress: any;
  
- 
-  
-  
-  
-  
+    
   constructor(private http: HttpClient, public networkInterface: NetworkInterface) {   
-    
        
-    
         this.isValidFormSubmitted = false;
         this.isAccepted = true;   
 
@@ -44,15 +38,9 @@ export class HttpClientComponent implements OnInit {
 
         //codigo para capturar la direccion ip
         this.ipAddress = this.networkInterface.getCarrierIPAddress().then(res => {this.ipAddress = res['ip'];});
-        
-
-    }
+     }
 
   ngOnInit() {}
-
-
-
-
 
   //codigo para registro del usuario
   post(){ 
