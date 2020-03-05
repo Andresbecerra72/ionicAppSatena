@@ -21,7 +21,7 @@ export class MenuPage implements OnInit {
   icon: 'information-circle-outline'
 },
 {
-  title:'!Entérate de las Promos¡',
+  title:'¡Entérate de las Promos!',
   url: '/menu/third',
   icon: 'contact'
 },

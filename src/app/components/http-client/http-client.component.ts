@@ -56,7 +56,7 @@ export class HttpClientComponent implements OnInit {
             correo : this.email,
             creadoPor: 'Usuario Android',
             airport : this.airportCodeValue,
-            ip: this.ipAddress
+            ip: this.ipAddress //para iOS esta pendiente la captura de la IP
           }
           ).subscribe( data => {this.resultadoPeticion = data;});
 
