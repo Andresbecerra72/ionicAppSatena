@@ -1,0 +1,48 @@
+<ion-header class="backwall">
+  <ion-toolbar>
+    <ion-title>{{modalTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        {{modelId}}<br>
+        {{model1}}<br>
+        {{model2}}<br>
+        {{model3}}<br>
+        {{model4}}<br>
+        {{model5}}<br>
+        {{model6}}
+      </ion-col>      
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list lines="none" [hidden]="ishiddenQ">
+          <ion-radio-group (ionChange) = radioGroupChange($event)>       
+            <ion-item>
+              <ion-label>No</ion-label>
+              <ion-radio slot="start"  value="no"></ion-radio>
+            </ion-item>       
+            <ion-item>
+              <ion-label>Si</ion-label>
+              <ion-radio slot="start"  value="si"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-col [hidden]="ishiddenQ">
+        <ion-button (click)="nextModal()" [disabled]="validSelected">Next Modal</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-col [hidden]="ishiddenMenu">
+        <ion-button (click)="closeModal()">Siguiente</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -21,6 +21,10 @@ import {FormsModule} from '@angular/forms';
 //se importa el modulo para el carrusel
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+//se importa la pagina modal
+import { CovidmodalPageModule } from './covidmodal/covidmodal.module';
+ 
+
 //se importa el paquete font awesome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -36,7 +40,15 @@ library.add(fas, far, fab)
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, HttpClientModule, FormsModule, IonicModule.forRoot(), AppRoutingModule,FontAwesomeModule],
+  imports: [
+    BrowserModule,
+     HttpClientModule, 
+     FormsModule, 
+     IonicModule.forRoot(), 
+     AppRoutingModule,
+     FontAwesomeModule,
+     CovidmodalPageModule
+    ],
   providers: [
     StatusBar,
     NetworkInterface,
