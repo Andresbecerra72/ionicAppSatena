@@ -9,26 +9,26 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-//se improta el modulo http
+// se improta el modulo http
 import {HttpClientModule} from '@angular/common/http';
 
-//se improta el modulo networkinterface para capturar la IP
+// se improta el modulo networkinterface para capturar la IP
 import { NetworkInterface } from '@ionic-native/network-interface/ngx';
 
-//se importa el modulo Forms
+// se importa el modulo Forms
 import {FormsModule} from '@angular/forms';
 
-//se importa el modulo para el carrusel
-//import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// se importa el modulo para el carrusel
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-//se importa la pagina modal
+// se importa la pagina modal
 import { CovidmodalPageModule } from './covidmodal/covidmodal.module';
  
 
-//se importa el paquete font awesome
+// se importa el paquete font awesome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
-//se importan librerias de los icono font awesome
+// se importan librerias de los icono font awesome
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
