@@ -10,6 +10,7 @@ import { ModalController, NavParams } from '@ionic/angular';
 export class CovidmodalPage implements OnInit {
   
   ishiddenQ: boolean; //variable para esconder los modales con radio button
+  ishiddenQNA: boolean = true; // Esconde radio buton NA
   ishiddenMenu: boolean;  //varable para esconder el primer modal (Modal 4)
   modalTitle:string;
   modelId:string;
@@ -50,6 +51,7 @@ export class CovidmodalPage implements OnInit {
     this.model5 = this.navParams.data.param5;
     this.model6 = this.navParams.data.param6;
     this.ishiddenQ = this.navParams.data.hiddenQ;
+    this.ishiddenQNA = this.navParams.data.hiddenQNA;
     this.ishiddenMenu = this.navParams.data.hiddenMenu;
     
   }
@@ -69,7 +71,7 @@ export class CovidmodalPage implements OnInit {
       //permite el paso al siguiente modal para responder las preguntas
         async nextModal() {
           if (this.check === true) {           
-            if (this.valueRadioB === 'no'){            
+            if (this.valueRadioB === 'no' || this.valueRadioB === 'NA' ){            
               this.contno += 1;                        
             }           
              this.check = false;

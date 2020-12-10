@@ -7,8 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { SuscripcionPage } from './suscripcion.page';
 
-//se importa el Component
-import { HttpClientComponent } from "../components/http-client/http-client.component";
+
 
 const routes: Routes = [
   {
@@ -24,6 +23,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [SuscripcionPage, HttpClientComponent]
+  declarations: [SuscripcionPage]
 })
 export class SuscripcionPageModule {}

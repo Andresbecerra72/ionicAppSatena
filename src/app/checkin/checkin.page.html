@@ -30,26 +30,163 @@
 
 <ion-content class="scroller ion-padding">
 
-    <ion-segment>
+
+
+    <ion-segment [hidden]="!ishidden">
+        <ion-label class="ion-text-center" color="dark">PROTOCOLO PARA CONTROL Y PREVENCIÓN COVID-19 EN MODULO O SALA</ion-label>
+    </ion-segment>
+    <br>
+
+    <ion-segment [hidden]="ishidden">
         <img src="/assets/equipaje.jpg" />
     </ion-segment>
+
+
+    <!-- *** Fomulario de Tamizaje *** -->
+    <ion-segment [hidden]="ishiddenForm">
+
+        <form #miForm="ngForm" (ngSubmit)="onFormSubmit(miForm)">
+
+            <div class="form-group">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            <ion-item>
+                                <ion-label style="font-family: inherit;" color="medium" position="floating">Nombre</ion-label>
+                                <ion-input type="text" class="form-control" name="nombre" [(ngModel)]="name" #nombre="ngModel" required></ion-input>
+
+                                <div *ngIf="nombre.invalid && (nombre.touched || nombre.dirty)">
+                                    <div *ngIf="nombre.errors?.required" [ngClass]="'error'" class="alert alert-danger" style="color: firebrick; font-size: 11px;">Ingrese el Nombre </div>
+                                </div>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item>
+                                <ion-label style="font-family: inherit;" color="medium" position="floating">Documento</ion-label>
+                                <ion-input type="text" class="form-control" name="dni" [(ngModel)]="dni" #documento="ngModel" required></ion-input>
+
+                                <div *ngIf="documento.invalid && (documento.touched || documento.dirty)">
+                                    <div *ngIf="documento.errors?.required" [ngClass]="'error'" class="alert alert-danger" style="color: firebrick; font-size: 11px;">Ingrese el Apellido</div>
+                                </div>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-item>
+                                <ion-label style="font-family: inherit;" color="medium" position="floating">Nacionalidad</ion-label>
+                                <ion-input type="text" class="form-control" name="nationality" [(ngModel)]="nationality" #nacionalidad="ngModel" required></ion-input>
+
+                                <div *ngIf="nacionalidad.invalid && (nacionalidad.touched || nacionalidad.dirty)">
+                                    <div *ngIf="nacionalidad.errors?.required" [ngClass]="'error'" class="alert alert-danger" style="color: firebrick; font-size: 11px;">Correo no valido</div>
+                                </div>
+                            </ion-item>
+
+                        </ion-col>
+                        <ion-col>
+                            <ion-item>
+                                <ion-label style="font-family: inherit;" color="medium" position="floating">No Vuelo</ion-label>
+                                <ion-input type="number" class="form-control" name="flight" [(ngModel)]="flight" #vuelo="ngModel" required></ion-input>
+
+                                <div *ngIf="vuelo.invalid && (vuelo.touched || vuelo.dirty)">
+                                    <div *ngIf="vuelo.errors?.required" [ngClass]="'error'" class="alert alert-danger" style="color: firebrick; font-size: 11px;">Vuelo no valido</div>
+                                </div>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+                <p class="ion-text-justify" color="dark">
+                    SATENA se permite informar a todos sus pasajeros, el deber constitucional y legal que tienen de suministrar información veraz y real cuando sea requerida por personal de la aerolínea, respecto a sus lugares de procedencia (o con conexión) de países afectados
+                    por el COVID 19, o de haber tenido contacto con personas afectadas o con síntomas de esta enfermedad, así como de toda información adicional que se le consulte sobre el tema. Se recuerda que se debe acatar todas las medidas adoptadas
+                    por las autoridades gubernamentales competentes, a fin de evitar la propagación del referido VIRUS.
+                </p>
+                <br>
+                <p class="ion-text-justify" color="dark">
+                    En el evento de existir dudas respecto a las declaraciones de la información requerida para el control de la epidemia, podrá verse inmerso en las sanciones contempladas para ello en el Código Penal, Artículos 368 y 369 que tratan los delitos contra salud
+                    pública y de las afectaciones a la salud pública.
+                </p>
+                <br>
+                <p class="ion-text-justify" color="dark">
+                    Tenga en cuenta que todos somos solidarios en las medidas de control, de esto depende que se logre contener la expansión del CORONAVIRUS (COVID-19) salvaguardando la salud pública y la estabilidad nacional.
+                </p>
+                <br>
+                <div>
+                    <ion-button type="submit" color="primary" [disabled]="!miForm.form.valid">Continuar</ion-button>
+                </div>
+
+            </div>
+        </form>
+
+
+
+    </ion-segment>
+
     <br>
-    <ion-segment class="ion-text-center">
+
+    <ion-segment [hidden]="ishiddenForm1">
+        <form #miForm1="ngForm" (ngSubmit)="enviarData(miForm1)">
+            <div class="form-group">
+                <ion-item>
+                    <p class="ion-text-justify" color="dark">
+                        Yo , identificado con (tipo de documento No) manifiesto que el personal de SATENA me ha explicado el propósito de la encuesta y demás preguntas realizadas, por cuanto son requeridas para el uso de los servicios de transporte prestados por la aerolínea.
+                        Declaro, además, que la misma es veraz y está acorde con la realidad de los hechos en los que se origina, que acataré las medidas indicadas para efectos del control de la propagación del nuevo CORONAVIRUS (COVID-19) y que autorizo
+                        a que la información suministrada sea utilizada conforme a los protocolos de seguridad establecidos por las autoridades aeroportuarias y/o de salud correspondientes. Declaro que fui informado y conozco de las consecuencias penales
+                        que puede acarrear el brindar información falsa frente al tema de interés nacional, en especial las establecidas en los artículos 368 y 369 del Código Penal, que tratan los delitos contra la salud pública y la sanción establecida
+                        en el decreto 780 del2016 artículo 2.8.8.1.4.2.1
+                    </p>
+
+                </ion-item>
+                <br>
+
+                <ion-item lines="none">
+                    <p class="ion-text-justify" color="dark">Ley de tratamiento de datos *</p>
+                </ion-item>
+
+
+                <ion-item lines="none">
+                    <ion-text class="ion-text-justify" style="font-family: inherit;" color="medium">Manifiesto y acepto que conozco los términos y condiciones de la
+                        <a style="font-size: 14px;" href="" target="_blank" title="Política de Tratamiento y Protección de Datos Personales.">
+                            Política de Tratamiento y Protección de Datos Personales. 
+                        </a> Y autorizo el uso de mis datos personales para recibir notificaciones adelantadas por la entidad.
+                    </ion-text>
+                    <input type="checkbox" class="form-control" style="margin-right: 10px;" color="primary" slot="start" name="aggrement" [(ngModel)]="isAccepted" #aggrement="ngModel" required>
+
+                </ion-item>
+
+                <div *ngIf="aggrement.invalid" [ngClass]="'error'">
+                    <div style="color:blue; font-size: 11px;">*Aceptar Terminos y Condiciones de la Política de Tratamiento y Protección de Datos Personales .</div>
+                </div>
+
+
+                <br>
+                <div>
+                    <ion-button type="submit" color="primary" [disabled]="!miForm1.form.valid">Enviar</ion-button>
+                </div>
+
+            </div>
+        </form>
+    </ion-segment>
+
+
+    <ion-segment class="ion-text-center ion-hide">
         <!-- *** Boton para mostrar los MODALS *** -->
-        <!-- <ion-button (click)="validAnswers()">Continuar Check-in</ion-button>  -->
+        <ion-button (click)="validAnswers()">Continuar Check-in</ion-button>
         <!-- <iframe src="https://www.satena.com//usuario/formulario-covid/" style="overflow: auto; -webkit-overflow-scrolling: touch; border: none;" scrolling="yes" width="100%" height="100%"> </iframe> -->
 
-        <p>Debes llenar el formualrio de declaración de estado de salud antes de volar</p>
+        <!-- <p>Debes llenar el formulario de declaración de estado de salud antes de volar</p> -->
 
     </ion-segment>
     <br>
-    <ion-segment>
-        <a style="text-decoration:none" href="https://www.satena.com/usuario/formulario-covid/">Iniciar Web Check-in</a>
+    <!-- <ion-segment>
+        <a style="text-decoration:none" href="https://www.satena.com/usuario/formulario-covid/">
+            Iniciar Web Check-in
+        </a>
     </ion-segment>
-    <br>
-    <ion-segment>
+    <br> -->
+    <!-- <ion-segment>
         <img src="/assets/aviso.png" />
-    </ion-segment>
+    </ion-segment> -->
     <section class="section ion-padding" [hidden]="ishidden">
         <p>Pasajeros que únicamente llevan equipaje de mano (Hasta 1 pieza de 5 Kgs Máximo) o no llevan equipaje.</p>
         <div>

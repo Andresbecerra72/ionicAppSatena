@@ -1,34 +1,109 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      <h2>Registro</h2>
-    </ion-title>
-  </ion-toolbar>
-  
-  <ion-fab horizontal="end" vertical="top" slot="fixed">
-    <ion-fab-button color="secondary">
-      <ion-icon name="share"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list>
-      <ion-fab-button href="https://www.facebook.com/aerolineasatena" color="light">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button href="https://twitter.com/AerolineaSatena" color="light">
-        <ion-icon name="logo-twitter"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button href="https://www.instagram.com/aerolineasatena/" color="light">
-        <ion-icon name="logo-instagram"></ion-icon>
-      </ion-fab-button>      
-    </ion-fab-list>
-  </ion-fab>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            <h2>Registro</h2>
+        </ion-title>
+    </ion-toolbar>
+
+    <ion-fab horizontal="end" vertical="top" slot="fixed">
+        <ion-fab-button color="secondary">
+            <ion-icon name="share"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list>
+            <ion-fab-button href="https://www.facebook.com/aerolineasatena" color="light">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button href="https://twitter.com/AerolineaSatena" color="light">
+                <ion-icon name="logo-twitter"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button href="https://www.instagram.com/aerolineasatena/" color="light">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
+    </ion-fab>
 
 </ion-header>
 
 <ion-content class="scroller ion-padding" no-bounce>
 
-<app-http-client></app-http-client>
+    <div>
+        <ion-card class="ion-padding">
+            <div class="section-title">
+                <h1>
+                    No te pierdas ninguna Promo
+                </h1>
+            </div>
+
+            <form #miForm="ngForm" (ngSubmit)="onFormSubmit(miForm)">
+                <div class="form-group">
+                    <ion-item>
+                        <ion-label style="font-family: inherit;" color="medium" position="floating">Nombre</ion-label>
+                        <ion-input type="text" class="form-control" name="nombre" [(ngModel)]="name" #nombre="ngModel" required></ion-input>
+
+                        <div *ngIf="nombre.invalid && (nombre.touched || nombre.dirty)">
+                            <div *ngIf="nombre.errors?.required" [ngClass]="'error'" class="alert alert-danger" style="color: firebrick; font-size: 11px;">Ingrese el Nombre </div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label style="font-family: inherit;" color="medium" position="floating">Apellido</ion-label>
+                        <ion-input type="text" class="form-control" name="apellido" [(ngModel)]="lastname" #apellido="ngModel" required></ion-input>
+
+                        <div *ngIf="apellido.invalid && (apellido.touched || apellido.dirty)">
+                            <div *ngIf="apellido.errors?.required" [ngClass]="'error'" class="alert alert-danger" style="color: firebrick; font-size: 11px;">Ingrese el Apellido</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label style="font-family: inherit;" color="medium" position="floating">E-mail</ion-label>
+                        <ion-input type="email" class="form-control" name="correo" [(ngModel)]="email" #correo="ngModel" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" required></ion-input>
+
+                        <div *ngIf="correo.invalid && (correo.touched || correo.dirty)">
+                            <div *ngIf="correo.errors?.required" [ngClass]="'error'" class="alert alert-danger" style="color: firebrick; font-size: 11px;">Correo no valido</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label style="font-family: inherit;" color="medium">Aeropuerto Más Cercano</ion-label>
+                        <ion-select class="form-control" interface="popover" name="airportCodeValue" [(ngModel)]="airportCodeValue" multiple="false" placeholder="Select.." required>
+
+                            <ion-select-option *ngFor="let a of airportsList['airports']" value="{{a.id}}">{{a.ciudad}}</ion-select-option>
+
+                        </ion-select>
+                    </ion-item>
+
+                    <ion-item lines="none">
+                        <ion-label style="font-family: inherit;" color="medium"> Acepto
+                            <a style="font-size: 14px;" href="https://www.satena.com/viewer.php?id=408&&rlsk='YUhSMGNITTZMeTkzZDNjdWMyRjBaVzVoTG1OdmJTOWtiMk4xYldWdWRHOXpMMk52Y25CdmNtRjBhWFp2TDNCdmJHbDBhV05oYzE5amIyNWthV05wYjI1bGMxOTBaWEp0YVc1dmMxOTFjMjh1Y0dSbQ=='" target="_blank"
+                                title="Ver términos y condiciones"> 
+                              Términos y condiciones                                   
+                            </a>
+                        </ion-label>
+                        <input type="checkbox" class="form-control" color="primary" slot="start" name="aggrement" [(ngModel)]="isAccepted" #aggrement="ngModel" required>
+
+                    </ion-item>
+
+                    <div *ngIf="aggrement.invalid" [ngClass]="'error'">
+                        <div style="color:blue; font-size: 11px;">*Aceptar Terminos y Condiciones.</div>
+                    </div>
+
+
+                    <div>
+                        <ion-button type="submit" shape="round" color="primary" [disabled]="!miForm.form.valid">¡Inscribirme!</ion-button>
+                    </div>
+
+                </div>
+            </form>
+            <br>
+            <p *ngIf="isValidFormSubmitted" [ngClass]="'success'" style="color: green;">
+                ...Felicidades.! ¿Recibiste el Correo de Bienvenida?
+            </p>
+        </ion-card>
+
+
+    </div>
 
 </ion-content>
