@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { NetworkInterface } from '@ionic-native/network-interface/ngx';
 
 import { SuscripcionService } from '../services/suscripcion/suscripcion.service';
 
@@ -27,8 +26,7 @@ export class SuscripcionPage implements OnInit {
   ipAddress: any;
  
     // -----------constructor---------------------------
-  constructor(private suscripcionService: SuscripcionService,
-              public networkInterface: NetworkInterface ) {   // public networkInterface: NetworkInterface 
+  constructor(private suscripcionService: SuscripcionService ) {   // public networkInterface: NetworkInterface 
        
         this.isValidFormSubmitted = false;
         this.isAccepted = true;   
@@ -58,19 +56,19 @@ getAirports(){
 getIP()  
 {  
 
-  this.ipAddress = this.networkInterface.getCarrierIPAddress()
-                                        .then(res => {
-                                          this.ipAddress = res['ip'];
-                                          console.log(this.ipAddress);
-                                        }) 
-                                        .catch(error => console.error(`Unable to get IP: ${error}`));
+  // this.ipAddress = this.networkInterface.getCarrierIPAddress()
+  //                                       .then(res => {
+  //                                         this.ipAddress = res['ip'];
+  //                                         // console.log(this.ipAddress);
+  //                                       }) 
+  //                                       .catch(error => console.error(`Unable to get IP: ${error}`));
 
-  // this.suscripcionService.getIPAddress()
-  //                       .subscribe((resp:any)=>{  
-  //                         this.ipAddress = resp.ip; 
-  //                         console.log(this.ipAddress);
+  this.suscripcionService.getIPAddress()
+                        .subscribe((resp:any)=>{  
+                          this.ipAddress = resp.ip; 
+                          console.log(this.ipAddress);
                            
-  //                       });  
+                        });  
 }  
 
 
@@ -87,7 +85,7 @@ getIP()
             this.email,
             'Usuario Android',
             this.airportCodeValue,
-            '0000'//this.ipAddress      
+            this.ipAddress // no funciona en pruebas **SOLO ANDROID
             
           );
 

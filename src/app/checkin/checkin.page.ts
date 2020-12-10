@@ -29,6 +29,7 @@ export class CheckinPage {
   dni:string;
   nationality:string;
   flight: number;
+  ipAddress: any;
 
 
 
@@ -36,13 +37,31 @@ export class CheckinPage {
   // -----------CONSTRUCTOR--------------
   constructor(public covidService: CovidService,
               public modalController: ModalController,
-              public toastController: ToastController) {
+              public toastController: ToastController) { // public networkInterface: NetworkInterface
 
       // this.openModal(); // abre el primer modal (modal 4)    
+      this.getIP();   
 
   }
 
-
+ // Metodo para capturar la IP
+ getIP()  
+ {  
+ 
+  //  this.ipAddress = this.networkInterface.getCarrierIPAddress()
+  //                                        .then(res => {
+  //                                          this.ipAddress = res['ip'];
+  //                                          // console.log(this.ipAddress);
+  //                                        }) 
+  //                                        .catch(error => console.error(`Unable to get IP: ${error}`));
+ 
+   this.covidService.getIPAddress()
+                         .subscribe((resp:any)=>{  
+                           this.ipAddress = resp.ip; 
+                           // console.log(this.ipAddress);
+                            
+                         });  
+ } 
 
   //------------------------------------------------------
   //            METODOS DEL MODAL
@@ -52,7 +71,7 @@ async openModal() {
   const modal = await this.modalController.create({
     component: CovidmodalPage,
     componentProps: {
-      paramTitle: 'Estimado Usuario:',
+      paramTitle: 'Estimad@ Pasajer@:',
       paramID: 'Si su respuesta a la anterior pregunta fue afirmativa, por favor responda la siguiente pregunta:',
       param1: '',
       param2: '5. ¿Usted ya cumplio con el protocolo de cuarentena y se le realizaron las 2 pruebas de coronavirus (COVID-19) dando como resultados ambas negativas?',
@@ -90,7 +109,7 @@ async openModal0() {
   const modal = await this.modalController.create({
     component: CovidmodalPage,
     componentProps: {
-      paramTitle: 'Estimado Usuario:',
+      paramTitle: 'Estimad@ Pasajer@:',
       paramID: '4. ¿Ha sido usted diagnosticado en algún momento durante la actual contingencia de salud con COVID-19?',
       hiddenQ: false,
       hiddenQNA: true,
@@ -122,7 +141,7 @@ async openModal1() {
   const modal = await this.modalController.create({
     component: CovidmodalPage,
     componentProps: {
-      paramTitle: 'Estimado Usuario:',
+      paramTitle: 'Estimad@ Pasajer@:',
       paramID: '3. ¿Ha presentado alguno o varios de los siguientes síntomas durante los últimos 5 días?',
       param1: ' - Secreción y goteos nasales',
       param2: ' - Dolor de garganta y cabeza',
@@ -161,7 +180,7 @@ async openModal2() {
   const modal = await this.modalController.create({
     component: CovidmodalPage,
     componentProps: {
-      paramTitle: 'Estimado Usuario:',
+      paramTitle: 'Estimad@ Pasajer@:',
       // tslint:disable-next-line: max-line-length
       paramID: '2. ¿Ha estado usted en contacto directo en los últimos 14 días con personas que hayan sido diagnosticados con el nuevo coronavirus COVID-19?',
       hiddenQ: false,
@@ -194,7 +213,7 @@ async openModal3() {
   const modal = await this.modalController.create({
     component: CovidmodalPage,
     componentProps: {
-      paramTitle: 'Estimado Usuario:',
+      paramTitle: 'Estimad@ Pasajer@:',
       // tslint:disable-next-line: max-line-length
       paramID: '1. ¿Ha presentado usted alguno de los síntomas asociados al nuevo coronavirus (COVID-19) en los últimos 14 días?',
       hiddenQ: false,
@@ -225,9 +244,9 @@ async openModal4() {
   const modal = await this.modalController.create({
     component: CovidmodalPage,
     componentProps: {
-      paramTitle: 'Estimado Usuario:',
+      paramTitle: 'Estimad@ Pasajer@:',
       // tslint:disable-next-line: max-line-length
-      paramID: 'Atendiendo a las recomendaciones del Ministerio de Salud y del Instituto Nacional de Salud, y con el fin de identificar, prevenir y controlar la propagación del COVID-19 en territorio nacional, por su salud, la de su familia y la de nuestros usuarios, amablemente le pedimos se sirva responder las siguientes preguntas antes de continuar con su Web Check-In:',
+      paramID: 'Atendiendo a las recomendaciones del Ministerio de Salud y del Instituto Nacional de Salud, y con el fin de identificar, prevenir y controlar la propagación del COVID-19 en territorio nacional, por su salud, la de su familia y la de nuestros Pasajer@s, amablemente le pedimos se sirva responder las siguientes preguntas antes de continuar con su Web Check-In:',
       hiddenQ: true,
       hiddenMenu: false
      
@@ -260,8 +279,7 @@ validAnswers(){
 async presentToastWithOptions() {
   const toast = await this.toastController.create({
     color : 'medium',
-    header: 'Señor Usuario',
-    // tslint:disable-next-line: max-line-length
+    header: 'Estimad@ Pasajer@',   
     message: 'Recuerde estar con dos (02) horas de anticipación a la hora de vuelo en el Aeropuerto de salida.',
     position: 'middle',
     buttons: [
@@ -270,13 +288,41 @@ async presentToastWithOptions() {
         icon: 'hand',
         text: ' ',
         handler: () => {
-          console.log('Favorite clicked');
+          //console.log('Favorite clicked');
         }
       }, {
         text: 'Cerrar',
         role: 'cancel',
         handler: () => {
-          console.log('Cancel clicked');
+          //console.log('Cancel clicked');
+        }
+      }
+    ]
+  });
+  toast.present();
+}
+
+// alerta cuando ingresan caracteres en el dato del vuelo
+async presentToastMessage() {
+  const toast = await this.toastController.create({
+    color : 'dark',
+    header: '¡Error!',   
+    message: 'Ingresa solo numeros en el campo del Vuelo',
+    position: 'middle',
+    translucent: true,    
+    buttons: [
+      {
+        side: 'start',
+        icon: 'warning',
+        text: ' ',
+        handler: () => {
+          //console.log('Favorite clicked');
+        }
+      }, {
+        text: 'Cerrar',
+        role: 'cancel',
+        handler: () => {
+         // console.log('Cancel clicked');
         }
       }
     ]
@@ -293,6 +339,13 @@ onFormSubmit(form: NgForm) { // Formulario 0
 
   // console.log(form.value);
 
+  const characters = /[&\/\\#,+()$~%.'":*?<>{}a-zA-Z]/g;  
+
+  if (form.value.flight.match(characters)) { // valida solo numeros en el dato del vuelo
+    this.presentToastMessage();
+    return;
+  }
+
   if (form.invalid)
    {
      return;
@@ -300,10 +353,10 @@ onFormSubmit(form: NgForm) { // Formulario 0
 
   // si todo Ok
   
-  this.covid.name = this.name
-  this.covid.dni = this.dni
-  this.covid.nationality = this.nationality
-  this.covid.flight = this.flight
+  this.covid.name = this.name;
+  this.covid.dni = this.dni;
+  this.covid.nationality = this.nationality;  
+  this.covid.flight = Number(this.flight);
 
   // console.log(this.covid);  
 
@@ -328,9 +381,9 @@ enviarData(form: NgForm) { // Formulario 1
   let key = btoa(btoa("covid"));//llave movil
 
   this.covid.key = key;
-  this.covid.dirIp = '00000'
+  this.covid.dirIp = this.ipAddress; // no funciona en pruebas  **SOLO ANDROID
 
-  console.log(this.covid);
+  // console.log(this.covid);
 
   this.covidService.registroCovid(this.covid)
                     .subscribe((resp: any) => {
@@ -350,7 +403,6 @@ enviarData(form: NgForm) { // Formulario 1
 
     
 }
-
 
 
 

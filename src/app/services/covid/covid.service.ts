@@ -33,7 +33,11 @@ export class CovidService {
  
  
  }
+ 
 
-
+ getIPAddress()  
+ {  
+   return this.http.get("http://api.ipify.org/?format=json");  
+ }  
 
 } // END class

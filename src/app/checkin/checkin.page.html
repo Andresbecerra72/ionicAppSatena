@@ -38,7 +38,7 @@
     <br>
 
     <ion-segment [hidden]="ishidden">
-        <img src="/assets/equipaje.jpg" />
+        <ion-img src="./assets/equipaje.jpg"></ion-img>
     </ion-segment>
 
 
@@ -66,7 +66,7 @@
                                 <ion-input type="text" class="form-control" name="dni" [(ngModel)]="dni" #documento="ngModel" required></ion-input>
 
                                 <div *ngIf="documento.invalid && (documento.touched || documento.dirty)">
-                                    <div *ngIf="documento.errors?.required" [ngClass]="'error'" class="alert alert-danger" style="color: firebrick; font-size: 11px;">Ingrese el Apellido</div>
+                                    <div *ngIf="documento.errors?.required" [ngClass]="'error'" class="alert alert-danger" style="color: firebrick; font-size: 11px;">Ingrese el Documento</div>
                                 </div>
                             </ion-item>
                         </ion-col>
@@ -78,7 +78,7 @@
                                 <ion-input type="text" class="form-control" name="nationality" [(ngModel)]="nationality" #nacionalidad="ngModel" required></ion-input>
 
                                 <div *ngIf="nacionalidad.invalid && (nacionalidad.touched || nacionalidad.dirty)">
-                                    <div *ngIf="nacionalidad.errors?.required" [ngClass]="'error'" class="alert alert-danger" style="color: firebrick; font-size: 11px;">Correo no valido</div>
+                                    <div *ngIf="nacionalidad.errors?.required" [ngClass]="'error'" class="alert alert-danger" style="color: firebrick; font-size: 11px;">Ingrese la Nacionalidad</div>
                                 </div>
                             </ion-item>
 
@@ -86,7 +86,7 @@
                         <ion-col>
                             <ion-item>
                                 <ion-label style="font-family: inherit;" color="medium" position="floating">No Vuelo</ion-label>
-                                <ion-input type="number" class="form-control" name="flight" [(ngModel)]="flight" #vuelo="ngModel" required></ion-input>
+                                <ion-input type="tel" class="form-control" name="flight" [(ngModel)]="flight" #vuelo="ngModel" maxlength="4" required></ion-input>
 
                                 <div *ngIf="vuelo.invalid && (vuelo.touched || vuelo.dirty)">
                                     <div *ngIf="vuelo.errors?.required" [ngClass]="'error'" class="alert alert-danger" style="color: firebrick; font-size: 11px;">Vuelo no valido</div>
@@ -129,7 +129,9 @@
             <div class="form-group">
                 <ion-item>
                     <p class="ion-text-justify" color="dark">
-                        Yo , identificado con (tipo de documento No) manifiesto que el personal de SATENA me ha explicado el propósito de la encuesta y demás preguntas realizadas, por cuanto son requeridas para el uso de los servicios de transporte prestados por la aerolínea.
+                        Yo
+                        <ion-text color="danger">{{name}}</ion-text>, identificado con (tipo de documento No)
+                        <ion-text color="danger">{{dni}}</ion-text> manifiesto que el personal de SATENA me ha explicado el propósito de la encuesta y demás preguntas realizadas, por cuanto son requeridas para el uso de los servicios de transporte prestados por la aerolínea.
                         Declaro, además, que la misma es veraz y está acorde con la realidad de los hechos en los que se origina, que acataré las medidas indicadas para efectos del control de la propagación del nuevo CORONAVIRUS (COVID-19) y que autorizo
                         a que la información suministrada sea utilizada conforme a los protocolos de seguridad establecidos por las autoridades aeroportuarias y/o de salud correspondientes. Declaro que fui informado y conozco de las consecuencias penales
                         que puede acarrear el brindar información falsa frente al tema de interés nacional, en especial las establecidas en los artículos 368 y 369 del Código Penal, que tratan los delitos contra la salud pública y la sanción establecida
