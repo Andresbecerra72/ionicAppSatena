@@ -383,7 +383,7 @@ enviarData(form: NgForm) { // Formulario 1
   this.covid.key = key;
   this.covid.dirIp = this.ipAddress; // no funciona en pruebas  **SOLO ANDROID
 
-  // console.log(this.covid);
+ // console.log(this.covid);
 
   this.covidService.registroCovid(this.covid)
                     .subscribe((resp: any) => {
