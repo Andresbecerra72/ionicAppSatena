@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 
 
 export class HomePage {
-
+//
 //************EFECTOS PARA EL SLIDE********** */
 slideOpts = { 
    
